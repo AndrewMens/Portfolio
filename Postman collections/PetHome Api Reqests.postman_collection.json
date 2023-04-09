@@ -1,0 +1,579 @@
+{
+	"info": {
+		"_postman_id": "ee423ca9-f39e-4495-9828-a30339c93a28",
+		"name": "PetHome Api Reqests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25542604"
+	},
+	"item": [
+		{
+			"name": "/pet_shelter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phone_num",
+							"value": "+{{phone_num}}",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "{{firstname}}",
+							"type": "text"
+						},
+						{
+							"key": "middlename",
+							"value": "{{middlename}}",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "{{lastname}}",
+							"type": "text"
+						},
+						{
+							"key": "comment",
+							"value": "{{comment}}",
+							"type": "text"
+						},
+						{
+							"key": "pet",
+							"value": "{{pet}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://158.160.56.133/api/pet_shelter_req/",
+					"protocol": "http",
+					"host": [
+						"158",
+						"160",
+						"56",
+						"133"
+					],
+					"path": [
+						"api",
+						"pet_shelter_req",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/pet_shelter get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phone_num",
+							"value": "+{{phone_num}}",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "{{firstname}}",
+							"type": "text"
+						},
+						{
+							"key": "middlename",
+							"value": "{{middlename}}",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "{{lastname}}",
+							"type": "text"
+						},
+						{
+							"key": "comment",
+							"value": "{{comment}}",
+							"type": "text"
+						},
+						{
+							"key": "pet",
+							"value": "{{pet}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://158.160.56.133/api/pet_shelter_req/",
+					"protocol": "http",
+					"host": [
+						"158",
+						"160",
+						"56",
+						"133"
+					],
+					"path": [
+						"api",
+						"pet_shelter_req",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get pet shelter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phone_num",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "firstname",
+							"value": "{{firstname}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "middlename",
+							"value": "{{middlename}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "lastname",
+							"value": "{{lastname}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "comment",
+							"value": "{{comment}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "pet",
+							"value": "{{pet}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "f5fdccaf-a214-45e2-ac66-8536f823ead3",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://158.160.56.133/api/pet_shelter_req/f5fdccaf-a214-45e2-ac66-8536f823ead3",
+					"protocol": "http",
+					"host": [
+						"158",
+						"160",
+						"56",
+						"133"
+					],
+					"path": [
+						"api",
+						"pet_shelter_req",
+						"f5fdccaf-a214-45e2-ac66-8536f823ead3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/1 new pet_shelter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phone_num",
+							"value": "+79000000000",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test@test.ru",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "BB",
+							"type": "text"
+						},
+						{
+							"key": "middlename",
+							"value": "CC",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "AA",
+							"type": "text"
+						},
+						{
+							"key": "comment",
+							"value": "--",
+							"type": "text"
+						},
+						{
+							"key": "pet",
+							"value": "517d137a-d05e-48bc-b1c0-cfeb09e06f23",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://158.160.56.133/api/pet_shelter_req/",
+					"protocol": "http",
+					"host": [
+						"158",
+						"160",
+						"56",
+						"133"
+					],
+					"path": [
+						"api",
+						"pet_shelter_req",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/new breed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Мейн-кун",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "Mainecoon",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://158.160.56.133/api/breed/",
+					"protocol": "http",
+					"host": [
+						"158",
+						"160",
+						"56",
+						"133"
+					],
+					"path": [
+						"api",
+						"breed",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/del breed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://158.160.56.133/api/breed/e6882527-d71c-4b07-978b-69c30fef4e6f/",
+					"protocol": "http",
+					"host": [
+						"158",
+						"160",
+						"56",
+						"133"
+					],
+					"path": [
+						"api",
+						"breed",
+						"e6882527-d71c-4b07-978b-69c30fef4e6f",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/New gender",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "паркет",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "parket",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://158.160.56.133/api/gender/",
+					"protocol": "http",
+					"host": [
+						"158",
+						"160",
+						"56",
+						"133"
+					],
+					"path": [
+						"api",
+						"gender",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/del gender",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "паркет",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "parket",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "18586156-da5c-427a-849f-d22183fb9c55",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://158.160.56.133/api/gender/18586156-da5c-427a-849f-d22183fb9c55",
+					"protocol": "http",
+					"host": [
+						"158",
+						"160",
+						"56",
+						"133"
+					],
+					"path": [
+						"api",
+						"gender",
+						"18586156-da5c-427a-849f-d22183fb9c55"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/del new pet_shelter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://158.160.56.133/api/pet_shelter_req/007c827b-806b-42a3-a7ab-663f29e0fc95/",
+					"protocol": "http",
+					"host": [
+						"158",
+						"160",
+						"56",
+						"133"
+					],
+					"path": [
+						"api",
+						"pet_shelter_req",
+						"007c827b-806b-42a3-a7ab-663f29e0fc95",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

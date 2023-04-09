@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "a77184fb-caa4-4637-8487-2ce55ce475e4",
+		"name": "PetStore1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25542604"
+	},
+	"item": [
+		{
+			"name": "New list Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"id\": 0,\r\n    \"username\": \"{{name_1}}\",\r\n    \"firstName\": \"Ivan\",\r\n    \"lastName\": \"Petrovih\",\r\n    \"email\": \"petrovich@deneg.net\",\r\n    \"password\": \"Pa$$w0rd\",\r\n    \"phone\": \"12345\",\r\n    \"userStatus\": 0\r\n  },\r\n  {\r\n    \"id\": 0,\r\n    \"username\": \"{{name_2}}\",\r\n    \"firstName\": \"Fedor\",\r\n    \"lastName\": \"Sidorovich\",\r\n    \"email\": \"sidor@hren.dva\",\r\n    \"password\": \"parol\",\r\n    \"phone\": \"6789\",\r\n    \"userStatus\": 0\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/user/createWithArray",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"createWithArray"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user_1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Сохраняем номер телефона\", function (){\r",
+							"    var jsonData = JSON.parse(responseBody)\r",
+							"    pm.collectionVariables.set(\"phone_1\", jsonData.phone)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"В теле ответа содержится name_1\", function (){\r",
+							"    pm.expect(pm.response.text()).to.include(pm.collectionVariables.get(\"name_1\"));\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/user/{{name_1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"{{name_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Сохраняем номер телефона\", function (){\r",
+							"    var jsonData = JSON.parse(responseBody)\r",
+							"    pm.collectionVariables.set(\"phone_2\", jsonData.phone)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"В теле ответа не содержится name_1\", function (){\r",
+							"    pm.expect(pm.response.text()).to.not.include(pm.collectionVariables.get(\"name_1\"));\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/user/{{name_2}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"{{name_2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create new user",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.variables.set(\"phone_3\", 7890);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Сохранение id user_3 в пременную user_id\", function () {\r",
+							"   var jsonData = JSON.parse(responseBody);\r",
+							"    pm.collectionVariables.set(\"user_id\", jsonData.message);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"Panaromix\",\r\n  \"firstName\": \"{{name_1}}\",\r\n  \"lastName\": \"{{name_2}}\",\r\n  \"email\": \"gallia@forev.er\",\r\n  \"password\": \"cezarsuck\",\r\n  \"phone\": \"{{phone_3}}\",\r\n  \"userStatus\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Сохраняем имя user 3 в переменную mame_3\", function (){\r",
+							"    var jsonData = JSON.parse(responseBody);\r",
+							"    pm.collectionVariables.set(\"name_3\", jsonData.username);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"user id содержится в ответе сервера\", function (){\r",
+							"    pm.expect(pm.response.text()).to.include(pm.collectionVariables.get(\"user_id\"));\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/user/Panaromix",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"Panaromix"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change user 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{user_id}},\r\n  \"username\": \"{{name_3}}\",\r\n  \"firstName\": \"{{name_2}}\",\r\n  \"lastName\": \"{{name_1}}\",\r\n  \"email\": \"hren@s.gory\",\r\n  \"password\": \"asdfg\",\r\n  \"phone\": \"09876\",\r\n  \"userStatus\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/user/{{name_3}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"{{name_3}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get chenged user_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Ответ сервера не содежит name_3\", function (){\r",
+							"    pm.expect(pm.response.text()).to.not.include(pm.collectionVariables.get(\"name_3\"));\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/user/{{name_3}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"{{name_3}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://petstore.swagger.io/v2",
+			"type": "string"
+		},
+		{
+			"key": "name_1",
+			"value": "Asterix",
+			"type": "string"
+		},
+		{
+			"key": "name_2",
+			"value": "Obelix",
+			"type": "string"
+		},
+		{
+			"key": "name_3",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "phone_1",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "phone_2",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_id",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
